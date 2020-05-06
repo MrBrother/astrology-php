@@ -122,6 +122,20 @@
                             Willie Stanley
                             <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
                           </h6>
+                          <div class="row">
+  <div class="column">
+    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Nature" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Snow" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Mountains" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Lights" onclick="myFunction(this);">
+  </div>
+</div>
                           <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="sample" class="rounded mw-100">
                           <p class="small text-muted mt-2 mb-0">
                             <span>

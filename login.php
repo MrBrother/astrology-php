@@ -9,10 +9,13 @@
       $password = mysqli_real_escape_string($db, $_POST["password"]);
       $users_list = get_user_id($db, $_POST["username"], $_POST["password"]);
 
-      $row = mysqli_fetch_array($users_list, MYSQLI_ASSOC);
+      // $row = mysqli_fetch_array($users_list, MYSQLI_ASSOC);
       $count = mysqli_num_rows($users_list);
       if ($count == 1) {
           $_SESSION['username'] = $username;
+          while ($row = mysqli_fetch_assoc($users_list)) {
+              $_SESSION['user_id'] = $row['id'];
+          }
           header('location: feed/main.php');
       } else {
           $error = 'Неправильные данные';

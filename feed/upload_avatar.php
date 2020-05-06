@@ -1,6 +1,5 @@
 
 <?php
-
 //upload.php
 
 if (isset($_POST["image"])) {
@@ -12,11 +11,11 @@ if (isset($_POST["image"])) {
 
     $data = base64_decode($image_array_2[1]);
 
-    $imageName = time() . '.png';
+    $imageName = $_SESSION['username'] . time() . '.png';
 
     file_put_contents('../media/'.$imageName, $data);
 
-    echo '<img src="'.$imageName.'" class="img-thumbnail" />';
+    echo '<img src="'.'../media/'.$imageName.'" class="img-thumbnail" />';
 }
 
 ?>

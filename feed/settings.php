@@ -3,6 +3,7 @@
   include('header.php');
   include('side_bar.php');
   include('../security.php');
+
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.css"
     integrity="sha256-M8o9uqnAVROBWo3/2ZHSIJG+ZHbaQdpljJLLvdpeKcI=" crossorigin="anonymous" />
