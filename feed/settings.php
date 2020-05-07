@@ -84,7 +84,9 @@
                 url: "upload_avatar.php",
                 type: "POST",
                 data: {
-                    "image": response
+                    "image": response,
+                    "username": '<?php echo $_SESSION['username'] ?>',
+                    "user_id": <?php echo $_SESSION['user_id'] ?>
                 },
                 success: function(data) {
                     $('#uploadimageModal').modal('hide');

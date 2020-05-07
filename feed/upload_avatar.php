@@ -1,7 +1,7 @@
 
 <?php
-//upload.php
-
+include("../config.php");
+session_start();
 if (isset($_POST["image"])) {
     $data = $_POST["image"];
 
@@ -11,11 +11,15 @@ if (isset($_POST["image"])) {
 
     $data = base64_decode($image_array_2[1]);
 
-    $imageName = $_SESSION['username'] . time() . '.png';
+    $imageName = $_POST['username'] . time() . '.png';
 
     file_put_contents('../media/'.$imageName, $data);
+    $sql_upload = "UPDATE test.Users t SET t.ProfilePicture = '/media/" . $imageName . "' WHERE t.ID = " . $_POST['user_id'];
 
-    echo '<img src="'.'../media/'.$imageName.'" class="img-thumbnail" />';
+    $result = mysqli_query($db, $sql_upload);
+    $_SESSION['profile_image'] = "/media/".$imageName;
+    // echo '<img src="'.'../media/'.$imageName.'" class="img-thumbnail" />';
+    echo "<meta http-equiv='refresh' content='0'>";
 }
 
 ?>

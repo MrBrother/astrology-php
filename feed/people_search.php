@@ -28,7 +28,7 @@
         <?php
             include("../config.php");
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $sql = "SELECT Username, LastName, FirstName  FROM  Users WHERE (
+                $sql = "SELECT ID, Username, LastName, FirstName  FROM  Users WHERE (
                     Username LIKE '". $_POST["query"] ."' or LastName like '". $_POST["query"] 
                     ."' OR FirstName like '". $_POST["query"] ."') LIMIT 10";
 
@@ -37,7 +37,7 @@
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<a href="#">';
+                        echo '<a href="profile.php?user_id='. $row['ID'] . '">';
                         echo '<div class="d-flex align-items-start profile-feed-item">';
                         echo '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile"';
                         echo 'class="img-sm rounded-circle">';

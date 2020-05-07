@@ -14,7 +14,8 @@
       if ($count == 1) {
           $_SESSION['username'] = $username;
           while ($row = mysqli_fetch_assoc($users_list)) {
-              $_SESSION['user_id'] = $row['id'];
+              $_SESSION['user_id'] = $row['ID'];
+              $_SESSION['profile_image'] = $row['ProfilePicture'];
           }
           header('location: feed/main.php');
       } else {
@@ -53,7 +54,11 @@
               </small>
             </div>
             <div style = "font-size:11px; color:#cc0000; margin-top:10px"></div>
+           
             <button type="submit" class="btn btn-success">Вход</button>
+            <div style="text-align: center; margin-top: 20px;">
+            <span >Нет аккаунта? <a href="register.php">Зарегистрируйтесь!</a></span>
+            </div>
           </form>
         </div>
       </div>

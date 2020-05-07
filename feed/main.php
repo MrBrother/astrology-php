@@ -1,9 +1,8 @@
 <?php
   session_start();
+  include('../security.php');
   include('header.php');
   include('side_bar.php');
-  include('../security.php');
-
 ?>
 <div class="col-lg-8">
     <div class="d-block d-md-flex justify-content-between mt-4 mt-md-0">
@@ -53,7 +52,7 @@
         // output data of each row
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<div class="d-flex align-items-start profile-feed-item">'
-           . '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile" class="img-sm rounded-circle">'
+           . '<img src="'. $_SESSION['profile_image'] .'" alt="profile" class="img-sm rounded-circle">'
            . '<div class="ml-4">'
             . '<a href="">'
             .'<h6>'
@@ -74,15 +73,8 @@
                 
             }
             echo '</div>';
-          echo ' <p class="small text-muted mt-2 mb-0">'
-           .     '    <span>'
-            .     '      <i class="mdi mdi-star mr-1"></i>'
-            .      '  </span>'
-           .        ' <span class="ml-2">'
-           .         '    <i class="mdi mdi-comment mr-1"></i>'
-            .        '</span>'
-            .    '</p>'
-            . '</div>'
+         
+            echo '</div>'
             . '</div>';
 
         }

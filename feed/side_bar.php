@@ -1,8 +1,8 @@
 <div class="col-lg-4">
   <div class="profile-card">
-    <img src="../img/photo-t.jpg" alt="user" class="profile-photo">
-    <h5><a href="#" class="text-white"><?php echo $_SESSION['username']; ?></a></h5>
-    <a href="#" class="text-white"><i class="fa fa-user"></i> 0 подписчиков</a>
+    <img src="<?php echo $_SESSION['profile_image'] ?>" alt="user" class="profile-photo">
+    <h5><a href="profile.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="text-white"><?php echo $_SESSION['username']; ?></a></h5>
+  
   </div>
   <!--profile card ends-->
   <ul class="nav-news-feed">
@@ -23,6 +23,10 @@
     </li>
     <li><i class="fa fa-cog <?php if($_SERVER['PHP_SELF'] == '/feed/settings.php') echo 'icon1'?>"></i>
       <div><a href="settings.php" <?php if($_SERVER['PHP_SELF'] == '/feed/settings.php') 'class="active"'?>>Настройки</a></div>
+    </li>
+    <li></li>
+    <li><i class="fa fa-sign-out" style="color: red;"></i>
+      <div><a href="/logout.php" class="active danger">Выйти</a></div>
     </li>
   </ul>
   <!--news-feed links ends-->

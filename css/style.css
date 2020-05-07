@@ -305,3 +305,7 @@ body {
         padding-right: 1.1rem;
     }
 }
+
+.danger {
+    color: red !important;
+}

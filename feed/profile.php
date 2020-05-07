@@ -62,7 +62,36 @@
                                 echo $bday;
                             ?></p>
                         <!-- Split button -->
-                       
+                        <?php if ($_SESSION['user_id'] != $_GET['user_id']){ ?>
+                        <?php       
+                                $sql = "SELECT ID
+                                        FROM UserFollowing
+                                        WHERE UserID = " . $_SESSION['user_id'] . " AND FollowingID=" . $_GET['user_id'];
+                             
+                                $result = mysqli_query($db, $sql);
+                                
+                                $count = mysqli_num_rows($result);
+                        ?>
+                        <?php if ($count > 0) {?>
+                            
+                            <button class="btn btn-success">Following</button>
+                            
+                        <?php }else {?>
+                            <form method="POST">
+                                <input name="follow_id" value="<?php echo $_GET['user_id'] ?>" hidden>
+                                <button class="btn btn-success" type="submit">Follow</button>
+                            <form>
+                        <?php } ?>
+                        <?php } ?> 
+                        <?php
+                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                $sql = "INSERT INTO test.UserFollowing (UserID, FollowingID) 
+                                        VALUES (" . $_SESSION['user_id'] . ", " . $_GET['user_id'] . ");";
+                              
+                                $result = mysqli_query($db, $sql);
+                                echo "<meta http-equiv='refresh' content='0'>";
+                            }
+                        ?>   
                     </div>
                 </div>
                 <div class="mt-4 py-2 border-top border-bottom">
